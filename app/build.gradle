@@ -1,0 +1,102 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 29
+
+    defaultConfig {
+        applicationId "tm.fantom.tmdbvw"
+        minSdkVersion 22
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+
+        buildConfigField "String", "API_BASE_URL", "\"https://api.themoviedb.org/3/\""
+//        buildConfigField "String", "API_KEY", "\"8e68138f7952ec119db927fdb09862ba\""
+        buildConfigField "String", "API_KEY", "\"ebea8cfca72fdff8d2624ad7bbf78e4c\""
+
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    buildFeatures {
+        viewBinding true
+    }
+
+    compileOptions {
+        sourceCompatibility = '1.8'
+        targetCompatibility = '1.8'
+    }
+}
+
+ext {
+    appCompatVersion = '1.2.0-alpha02'
+    liveVersion = '2.2.0'
+    recyclerVersion = '1.1.0'
+    swiperefreshVersion = '1.1.0'
+    cardViewVersion = '1.0.0'
+    retrofit2Version = '2.9.0'
+    rxJavaVersion = '2.2.17'
+    rxAndroidVersion = '2.1.1'
+    timberVersion = '4.7.1'
+    gsonVersion = '2.8.6'
+
+    daggerVersion = '2.23.2'
+
+    okhttp3Version = '4.7.2'
+
+    jodaTimeVersion = '2.10.1'
+
+    frescoVersion = '2.1.0'
+
+    roomVersion = '2.2.0-beta01' // alpha06 has bugs
+
+    reactivestreamsVersion = '1.1.1'
+    shimmerVersion = '0.4.0'
+}
+
+dependencies {
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+    implementation "androidx.appcompat:appcompat:$appCompatVersion"
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    implementation "androidx.lifecycle:lifecycle-extensions:$liveVersion"
+    implementation "androidx.recyclerview:recyclerview:$recyclerVersion"
+    implementation "androidx.swiperefreshlayout:swiperefreshlayout:$swiperefreshVersion"
+    implementation "androidx.cardview:cardview:$cardViewVersion"
+
+    implementation "com.jakewharton.timber:timber:$timberVersion"
+    implementation "com.squareup.retrofit2:retrofit:$retrofit2Version"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofit2Version"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:$retrofit2Version"
+    implementation "com.squareup.okhttp3:logging-interceptor:$okhttp3Version"
+
+    implementation "com.facebook.fresco:fresco:$frescoVersion"
+
+
+    implementation "androidx.room:room-runtime:$roomVersion"
+    implementation "androidx.room:room-rxjava2:$roomVersion"
+    annotationProcessor "androidx.room:room-compiler:$roomVersion"
+
+    implementation "io.reactivex.rxjava2:rxandroid:$rxAndroidVersion"
+    implementation "io.reactivex.rxjava2:rxjava:$rxJavaVersion"
+    implementation "com.google.code.gson:gson:$gsonVersion"
+
+    implementation "com.google.dagger:dagger:$daggerVersion"
+    annotationProcessor "com.google.dagger:dagger-compiler:$daggerVersion"
+
+    implementation "com.google.dagger:dagger-android:$daggerVersion"
+    implementation "com.google.dagger:dagger-android-support:$daggerVersion"
+    annotationProcessor "com.google.dagger:dagger-android-processor:$daggerVersion"
+
+    implementation "android.arch.lifecycle:reactivestreams:$reactivestreamsVersion"
+
+    implementation "joda-time:joda-time:$jodaTimeVersion"
+
+    implementation "com.facebook.shimmer:shimmer:$shimmerVersion"
+
+}
